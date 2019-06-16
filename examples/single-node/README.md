@@ -32,6 +32,21 @@ test -z DEVSHELL_GCLOUD_CONFIG && gcloud auth application-default login
 export GOOGLE_PROJECT=$(gcloud config get-value project)
 ```
 
+Use a service account with the following roles:
+```
+Compute Instance Admin (v1)
+Compute Network Admin
+Compute Security Admin
+Role Viewer
+Service Account User
+Storage Admin
+Storage Object Viewer
+```
+
+```
+export GOOGLE_APPLICATION_CREDENTIALS=...//service account key json file
+```
+
 ## Configure remote backend
 
 Configure Terraform [remote backend](https://www.terraform.io/docs/backends/types/gcs.html) for the state file.
