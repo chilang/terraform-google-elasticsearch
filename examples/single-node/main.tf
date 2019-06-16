@@ -19,6 +19,9 @@ provider "google" {
   region = "${var.region}"
 }
 
+provider "google-beta" {
+  region = "${var.region}"
+}
 resource "google_compute_network" "default" {
   name                    = "${var.network_name}"
   auto_create_subnetworks = "false"

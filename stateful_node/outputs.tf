@@ -1,5 +1,5 @@
 output "addresses" {
-  value = ["${google_compute_instance.node.*.network_interface.0.address}"]
+  value = ["${google_compute_instance.node.*.network_ip}"]
 }
 
 output "instances" {
@@ -7,7 +7,7 @@ output "instances" {
 }
 
 output "data_addresses" {
-  value = ["${google_compute_instance.data_node.*.network_interface.0.address}"]
+  value = ["${google_compute_instance.data_node.*.network_ip}"]
 }
 
 output "data_instances" {

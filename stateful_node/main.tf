@@ -51,7 +51,7 @@ resource "google_compute_instance" "node" {
   network_interface {
     subnetwork    = "${var.subnetwork}"
     access_config = ["${var.access_config}"]
-    address       = "${var.network_ip}"
+    network_ip    = "${var.network_ip}"
   }
 
   metadata = "${merge(
@@ -113,7 +113,7 @@ resource "google_compute_instance" "data_node" {
   network_interface {
     subnetwork    = "${var.subnetwork}"
     access_config = ["${var.access_config}"]
-    address       = "${var.network_ip}"
+    network_ip    = "${var.network_ip}"
   }
 
   metadata = "${merge(

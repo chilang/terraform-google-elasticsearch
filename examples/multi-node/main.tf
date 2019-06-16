@@ -1,4 +1,4 @@
-provider "google" {
+provider "google-beta" {
   region = "${var.region}"
 }
 
