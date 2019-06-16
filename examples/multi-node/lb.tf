@@ -7,14 +7,14 @@ resource "google_compute_address" "es_client_ilb" {
 
 // Client internal load balancer
 module "es_client_ilb" {
-  source            = "GoogleCloudPlatform/lb-internal/google"
-  version           = "1.0.4"
+  source            = "../../../terraform-google-lb-internal"
+  # version           = "1.0.4"
   region            = "${var.region}"
   name              = "${var.cluster_name}-client-ilb"
   ip_address        = "${google_compute_address.es_client_ilb.address}"
   ports             = ["9200", "9300"]
   health_port       = "9200"
-  http_health_check = true
+  # http_health_check = true
   source_tags       = ["${var.cluster_name}-kibana", "${var.cluster_name}-external"]
   target_tags       = ["${var.cluster_name}-client"]
   network           = "${google_compute_subnetwork.default.name}"
@@ -36,14 +36,14 @@ resource "google_compute_address" "es_indexing_ilb" {
 
 // Indexing internal load balancer
 module "es_indexing_ilb" {
-  source            = "GoogleCloudPlatform/lb-internal/google"
-  version           = "1.0.4"
+  source            = "../../../terraform-google-lb-internal"
+  # version           = "1.0.4"
   region            = "${var.region}"
   name              = "${var.cluster_name}-indexing-ilb"
   ip_address        = "${google_compute_address.es_indexing_ilb.address}"
   ports             = ["9200", "9300"]
   health_port       = "9200"
-  http_health_check = true
+  # http_health_check = true
   source_tags       = ["${var.cluster_name}-external"]
   target_tags       = ["${var.cluster_name}-indexing"]
   network           = "${google_compute_subnetwork.default.name}"

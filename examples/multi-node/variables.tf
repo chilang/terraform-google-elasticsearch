@@ -38,7 +38,7 @@ variable "data_heap_size" {
 }
 
 variable "data_num_nodes" {
-  default = 4
+  default = 2
 }
 
 variable "data_disk_size" {
@@ -59,7 +59,7 @@ variable "client_heap_size" {
 }
 
 variable "client_num_nodes" {
-  default = 2
+  default = 1
 }
 
 // Indexing nodes
@@ -72,7 +72,7 @@ variable "indexing_heap_size" {
 }
 
 variable "indexing_num_nodes" {
-  default = 2
+  default = 0
 }
 
 // Bastion host
